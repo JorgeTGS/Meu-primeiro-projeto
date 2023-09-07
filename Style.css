@@ -42,7 +42,8 @@ body * {
 }
 /*"#~~~~" para selecionar um Id espicifico */
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px; /*fas com que a mergens fiquem do mesmo tamnho, só não altera a margem de cima centralizando*/
   /*margin-right: auto; / margin-left: auto;   */
   /*padding-top: 56px;  padding é prencdimento e top é em cima. que siguinifica que almenta a margem de cima*/
