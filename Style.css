@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* remove toda a margem e prenchimento do navegador*/
+  box-sizing: border-box; /*Calcula o tamanho a partir da borda*/
+}
+
+/*Subistitui tudo de que esta em root por tudo que esta em light e vise versa*/
+:root {
+  --text-color: white;
+  --bg-url: url(assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --sufarce-color: rgba(255, 255, 255, 0.1);
+  --surfarce-color-hover: rgba(0, 0, 0, 0.02);
+  --highlingt-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+/*--text-color é nome que vc dá a variavel*/
+.light {
+  --text-color: black;
+  --bg-url: url(assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.05);
+  --sufarce-color: rgba(0, 0, 0, 0.05);
+  --surfarce-color-hover: rgba(0, 0, 0, 0.02);
+  --highlingt-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+Body {
+  background-image: var(--bg-url); /* "url()" é uma função para colocar imagem*/
+  background-repeat: no-repeat; /*para não repetir varias imagens na tela*/
+  background-position: top center; /* "background-position:" para definir a posição; "center" para posicionar a imagem "top" para posionar meio */
+  background-size: cover; /*"background-size:" para definir tamnho; "cover" para prencher a tela */
+
+  /*background: url(assets/bg-mobile.jpg) no-repeat top center/cover;  Todo o codigo acima em uma unica linha*/
+}
+
+body * {
+  /*O "*" faz com que tudo dentro do elemento fiquem com essas caracteristicas (obs: tem que ter um espaço antes)*/
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+}
+/*"#~~~~" para selecionar um Id espicifico */
+#container {
+  width: 360px;
+  margin: 56px auto 0px; /*fas com que a mergens fiquem do mesmo tamnho, só não altera a margem de cima centralizando*/
+  /*margin-right: auto; / margin-left: auto;   */
+  /*padding-top: 56px;  padding é prencdimento e top é em cima. que siguinifica que almenta a margem de cima*/
+  padding: 0 24px;
+}
+/*top = cima
+right = direita
+bottom = em baixo
+left = esquerda*/
+
+#profile {
+  text-align: center; /*Alinha o texto no certro*/
+}
+
+#profile img {
+  width: 112px;
+}
+#profile p {
+  font-weight: 500;
+  /*font-size: 16px; fonte "16px" padrão dos navrgadores não é necessario colocar nesse caso */
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  height: 24px;
+  margin: 8px auto;
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center; /*no-repeat para não repedtir a imagem(multiplicar pra prencher o lugar) e center para centraliar a imagem*/
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /*absolute faz uma sobreposcição de camada fazendo ficar em cima*/
+  top: 50%;
+  left: 0;
+  z-index: 1; /*andar da pagina*/
+  transform: translateY(-50);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--sufarce-color);
+  border: 1px solid var(--text-color);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(0.4px);
+  border-radius: 9999px;
+}
+
+/* Links */
+
+ul {
+  list-style: none; /* "none" Remove o estilo da lista*/
+  display: flex; /*A propriedade CSS display: flex; é usada para criar um contêiner flex e flex-direction: column; é usada para definir a direção do eixo principal do contêiner flex. Neste caso, será definido como uma direção vertical .*/
+  flex-direction: column;
+  gap: 16px; /*Coloa espçao entre os elementos OBS: gap só pode ser usado com o display: flex;*/
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center; /* Centraliza o texto*/
+  /*align-items: center;  Centraliza Verticalmente dentro da caixa*/
+
+  padding: 16px 24px;
+
+  background: var(--sufarce-color);
+  border: 1px solid var(--text-color);
+  border-radius: 8px; /*Serve para arredondar a borda*/
+
+  backdrop-filter: blur(4px); /*coloca embassamento no elemento*/
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /*Necessario para funcinar em navegadores imcompativeis*/
+
+  text-decoration: none; /*Remove o sublinhamento*/
+  font-weight: 500;
+
+  transition: background 0.2s; /*Faz o item slecionar transionar no tempo definido*/
+}
+
+/*pseudor-seletor*/
+ul li a:hover {
+  /*Aplica um comportamento quado o mouse paçar por cima*/
+  background: var(--surfarce-color-hover);
+  border: 1px solid var(--text-color);
+}
+
+#links-redes-socias {
+  display: flex;
+  padding: 24px;
+  font-size: 24px; /*Aumenta o tamnho de tudo que esta dentro do elemento */
+  justify-content: center;
+}
+#links-redes-socias a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: backgroud 0.2;
+  border-radius: 50%; /*deixa a caixa redonda*/
+}
+
+#links-redes-socias a:hover {
+  background: var(
+    --highlingt-color
+  ); /*cria uma caixa com uma cor espesifica, lembrando que o hover só ativa com o mouse em cima*/
+}
+
+footer {
+  display: flex;
+  padding: 24px 0;
+  justify-content: center;
+  font-size: 14px;
+}
