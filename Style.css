@@ -31,8 +31,8 @@ Body {
   background-repeat: no-repeat; /*para não repetir varias imagens na tela*/
   background-position: top center; /* "background-position:" para definir a posição; "center" para posicionar a imagem "top" para posionar meio */
   background-size: cover; /*"background-size:" para definir tamnho; "cover" para prencher a tela */
-
   /*background: url(assets/bg-mobile.jpg) no-repeat top center/cover;  Todo o codigo acima em uma unica linha*/
+  height: 100vh; /*Para completar o view point(a tela visivel ) da pagina*/
 }
 
 body * {
@@ -169,4 +169,14 @@ footer {
   padding: 24px 0;
   justify-content: center;
   font-size: 14px;
+}
+
+@media (min-width: 700px) {
+  /*De 700px pra cima serão aplciadas as regras que estão dentro das dentros das {}*/
+  :root {
+    --bg-url: url(./assets/bg-desktop.png);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
